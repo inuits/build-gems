@@ -1,0 +1,4 @@
+for gem in `cat gem-list` 
+do
+	fpm -t rpm -s gem -a noarch $gem
+done 
