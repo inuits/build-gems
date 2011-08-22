@@ -10,7 +10,7 @@ do
 		RETVAL=$?
 	else 
 		echo "Building  $basename version $version "
-		fpm -t rpm -s gem -v $version -a noarch $gem 
+		fpm -t rpm -s gem -v $version -a noarch $basename 
 		RETVAL=$?
 	fi
 	echo "Build of $basename returned with $RETVAL"
