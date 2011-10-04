@@ -1,5 +1,5 @@
 mkdir -p BUILD
-for gem in `cat  gem-list` 
+for gem in `cat  gem-list | grep -v "#" ` 
 do
 	version=`echo $gem | awk -F':' '{print $2}'` 
 	basename=`echo $gem | awk -F':' '{print $1}'` 
