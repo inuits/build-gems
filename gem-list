@@ -32,7 +32,7 @@ mocha:0.9.10
 mysql:2.8.1
 oauth
 oauth:0.4.4
-oniguruma
+#oniguruma
 paperclip:2.2.9.2
 passenger:2.2.7
 proxymachine:1.2.4
