@@ -48,7 +48,7 @@ redis-namespace:0.7.0
 resque:1.9.8
 revo-ssl_requirement:1.1.0
 riddle:1.2.2
-rmagick
+#rmagick
 rspec
 rspec-rails
 rubyforge:2.0.4
