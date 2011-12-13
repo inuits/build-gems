@@ -1,4 +1,4 @@
-puppet-lint
+#puppet-lint
 activemessaging:0.7.1
 activerecord:2.3.8
 activesupport:2.3.8
