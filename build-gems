@@ -18,6 +18,7 @@ do
 	cd ../
 done
 if [ -d ARTEFACTS ]
+then
     rm -rf ARTEFACTS
 fi
 mkdir ARTEFACTS
