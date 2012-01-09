@@ -1,22 +1,22 @@
 mkdir -p BUILD
-for gem in `cat  gem-list | grep -v "#" ` 
+for gem in `cat  gem-list | grep -v "#" `
 do
-	version=`echo $gem | awk -F':' '{print $2}'` 
-	basename=`echo $gem | awk -F':' '{print $1}'` 
+	version=`echo $gem | awk -F':' '{print $2}'`
+	basename=`echo $gem | awk -F':' '{print $1}'`
 	cd BUILD
 	if [ x$version == 'x' ]; then 	
 		echo "Building latest $basename "
 		fpm -t rpm -s gem -a noarch $gem
 		RETVAL=$?
-	else 
+	else
 		echo "Building  $basename version $version "
-		fpm -t rpm -s gem -v $version -a noarch $basename 
+		fpm -t rpm -s gem -v $version -a noarch $basename
 		RETVAL=$?
 	fi
 	echo "Build of $basename returned with $RETVAL"
 	[  $RETVAL -ne 0 ] && exit 1
 	cd ../
-done 
+done
 mkdir -p ARTEFACTS
 mv BUILD/*.rpm ARTEFACTS
 rm -rf BUILD
