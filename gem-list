@@ -40,7 +40,6 @@ oauth:0.4.4
 paperclip:2.2.9.2
 passenger:2.2.7
 proxymachine:1.2.4
-#puppet-lint
 puppet-lint
 rack
 rack:1.0.1
