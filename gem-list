@@ -35,7 +35,6 @@ ezamar
 fakefs
 fakeweb
 ffi
-flexmock
 fuubar
 gem_hadar
 gherkin
@@ -44,13 +43,6 @@ guard-rspec
 haml
 hiera
 highline
-hoe
-hoe-bundler
-hoe-debugging
-hoe-doofus
-hoe-gemspec
-hoe-git
-hoe-seattlerb
 hpricot
 i18n
 innate
@@ -64,7 +56,6 @@ linecache
 liquid
 locale
 log4r
-lokar
 markaby
 maruku
 memcache-client
@@ -80,7 +71,6 @@ mustache
 nagoro
 net-scp
 net-ssh
-nokogiri
 open4
 pdf-reader
 permutation
@@ -91,7 +81,6 @@ prawn-core
 prawn-layout
 prawn-security
 progressbar
-pry
 racc
 rack
 rack-contrib
@@ -116,9 +105,7 @@ rspec
 rspec-core
 rspec-expectations
 rspec-mocks
-ruby-fcgi
 rubyforge
-ruby-growl
 ruby-rc4
 rubyzip
 rush
@@ -137,11 +124,9 @@ spork
 sqlite3
 sqlite3-ruby
 syntax
-tagz
 tenjin
 term-ansicolor
 test_declarative
-therubyracer
 thin
 thor
 tilt
@@ -154,4 +139,3 @@ wikicloth
 xpath
 yajl-ruby
 yard
-ZenTest
