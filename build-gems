@@ -2,7 +2,7 @@
 
 export PATH="/usr/lib/ruby/gems/1.8/bin:$PATH"
 
-[ -d BUILD ] && mkdir -p BUILD
+[ -d BUILD ] || mkdir -p BUILD
 
 for gem in `cat gem-list | grep -v "#" `
 do
