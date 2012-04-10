@@ -3,6 +3,7 @@
 set -x
 export PATH="/usr/lib/ruby/gems/1.8/bin:$PATH"
 
+[ -f failed.txt ] && rm failed.txt
 [ -d BUILD ] || mkdir -p BUILD
 
 for gem in `cat gem-list | grep -v "#" `
@@ -20,7 +21,9 @@ do
 		RETVAL=$?
 	fi
 	echo "Build of $basename returned with $RETVAL"
-	[  $RETVAL -ne 0 ] && exit 1
+	if [  $RETVAL -ne 0 ];
+    echo $basename >> ../failed.txt
+  fi
 	cd ../
 done
 if [ -d ARTIFACTS ]
@@ -31,3 +34,7 @@ mkdir ARTIFACTS
 mv BUILD/*.rpm ARTIFACTS
 rm -rf BUILD
 
+errcount=`cat failed.txt | wc -l`
+if [ $errcount -gt 0 ]; then
+  exit 1;
+fi;
