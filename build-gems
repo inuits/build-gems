@@ -1,15 +1,20 @@
-mkdir -p BUILD
-for gem in `cat  gem-list | grep -v "#" `
+#!/bin/bash
+
+export PATH="/usr/lib/ruby/gems/1.8/bin:$PATH"
+
+[ -d BUILD ] && mkdir -p BUILD
+
+for gem in `cat gem-list | grep -v "#" `
 do
 	version=`echo $gem | awk -F':' '{print $2}'`
 	basename=`echo $gem | awk -F':' '{print $1}'`
 	cd BUILD
-	if [ x$version == 'x' ]; then 	
-		echo "Building latest $basename "
+	if [ x$version == 'x' ]; then
+		echo "Building latest $basename"
 		fpm -t rpm -s gem -a noarch $gem
 		RETVAL=$?
 	else
-		echo "Building  $basename version $version "
+		echo "Building $basename version $version"
 		fpm -t rpm -s gem -v $version -a noarch $basename
 		RETVAL=$?
 	fi
@@ -17,12 +22,11 @@ do
 	[  $RETVAL -ne 0 ] && exit 1
 	cd ../
 done
-if [ -d ARTEFACTS ]
+if [ -d ARTIFACTS ]
 then
-    rm -rf ARTEFACTS
+    rm -rf ARTIFACTS
 fi
-mkdir ARTEFACTS
-mv BUILD/*.rpm ARTEFACTS
+mkdir ARTIFACTS
+mv BUILD/*.rpm ARTIFACTS
 rm -rf BUILD
-
 
