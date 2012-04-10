@@ -21,7 +21,7 @@ do
 		RETVAL=$?
 	fi
 	echo "Build of $basename returned with $RETVAL"
-	if [  $RETVAL -ne 0 ];
+	if [  $RETVAL -ne 0 ]; then
     echo $basename >> ../failed.txt
   fi
 	cd ../
