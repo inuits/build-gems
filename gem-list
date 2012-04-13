@@ -64,7 +64,6 @@ metaclass
 mime-types
 mini_portile
 minitest
-minitest-libnotify
 mocha
 mongrel
 multi_json
