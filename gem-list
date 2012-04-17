@@ -4,6 +4,7 @@ hiera
 hiera-puppet
 puppet-module
 puppet-lint
+fastthread
 ## For dependencies:
 abstract
 activesupport
