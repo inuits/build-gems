@@ -6,18 +6,19 @@ export PATH="/usr/lib/ruby/gems/1.8/bin:$PATH"
 [ -f failed.txt ] && rm failed.txt
 [ -d BUILD ] || mkdir -p BUILD
 
-for gem in `cat gem-list | grep -v "#" `
+while read gem
 do
-	version=`echo $gem | awk -F':' '{print $2}'`
-	basename=`echo $gem | awk -F':' '{print $1}'`
+	version=`echo $gem    | cut -d':' -f 2 `
+	basename=`echo $gem   | cut -d':' -f 1 `
+  extra_args=`echo $gem | cut -d':' -f 3- `
 	cd BUILD
 	if [ x$version == 'x' ]; then
 		echo "Building latest $basename"
-		fpm -t rpm -s gem -a noarch $gem
+		eval fpm -t rpm -s gem -a noarch $extra_args $basename
 		RETVAL=$?
 	else
 		echo "Building $basename version $version"
-		fpm -t rpm -s gem -v $version -a noarch $basename
+		fpm -t rpm -s gem -v $version -a noarch $extra_args $basename
 		RETVAL=$?
 	fi
 	echo "Build of $basename returned with $RETVAL"
@@ -25,7 +26,8 @@ do
     echo $basename >> ../failed.txt
   fi
 	cd ../
-done
+done < <(cat gem-list | grep -v '^#')
+
 if [ -d ARTIFACTS ]
 then
     rm -rf ARTIFACTS
