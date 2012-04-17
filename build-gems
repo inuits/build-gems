@@ -1,27 +1,31 @@
 #!/bin/bash
 
-set -x
 export PATH="/usr/lib/ruby/gems/1.8/bin:$PATH"
 
+count=`cat gem-list | grep -v '^#' | wc -l`
+cl=`echo $count | wc -c`
+i=0;
 [ -f failed.txt ] && rm failed.txt
 [ -d BUILD ] || mkdir -p BUILD
 
 while read gem
 do
+  let 'i++';
+  prefix=`printf "[%${cl}d/%d]" $i $count`
 	version=`echo $gem    | cut -d':' -f 2 `
 	basename=`echo $gem   | cut -d':' -f 1 `
   extra_args=`echo $gem | cut -d':' -f 3- `
 	cd BUILD
 	if [ x$version == 'x' ]; then
-		echo "Building latest $basename"
+		echo "$prefix Building latest $basename"
 		eval fpm -t rpm -s gem -a noarch $extra_args $basename
 		RETVAL=$?
 	else
-		echo "Building $basename version $version"
+		echo "$prefix Building $basename version $version"
 		fpm -t rpm -s gem -v $version -a noarch $extra_args $basename
 		RETVAL=$?
 	fi
-	echo "Build of $basename returned with $RETVAL"
+	echo "$prefix Build of $basename returned with $RETVAL"
 	if [  $RETVAL -ne 0 ]; then
     echo $basename >> ../failed.txt
   fi
