@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -x
 export PATH="/usr/lib/ruby/gems/1.8/bin:$PATH"
 
 count=`cat gem-list | grep -v '^#' | wc -l`
@@ -11,6 +12,7 @@ i=0;
 while read gem
 do
   let 'i++';
+  echo $gem | grep -q ':' || gem="${gem}:"
   prefix=`printf "[%${cl}d/%d]" $i $count`
 	version=`echo $gem    | cut -d':' -f 2 `
 	basename=`echo $gem   | cut -d':' -f 1 `
