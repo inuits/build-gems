@@ -1,4 +1,5 @@
 fpm
+daemon_controller
 fastthread::--url http://rubyforge.org/projects/mongrel/
 backports:2.3.0
 hiera
