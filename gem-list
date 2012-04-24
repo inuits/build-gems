@@ -6,6 +6,7 @@ hiera
 hiera-puppet
 puppet-module
 puppet-lint
+rest-client
 ## For dependencies:
 abstract
 activesupport
