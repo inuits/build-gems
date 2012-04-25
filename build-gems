@@ -22,13 +22,16 @@ do
 	cd BUILD
 	if [ x$version == 'x' ]; then
 		echo "$prefix Building latest $basename"
-		eval fpm -t rpm -s gem -a noarch $extra_args $basename
+#		eval fpm -t rpm -s gem -a noarch $extra_args $basename
 		RETVAL=$?
 	else
 		echo "$prefix Building $basename version $version"
-		fpm -t  rpm -s gem -v $version -a noarch $extra_args $basename
-		RETVAL=$?
+    extra_args="-v $version $extra_args"
+#		fpm -t  rpm -s gem -v $version -a noarch $extra_args $basename
 	fi
+  eval fpm -t rpm -s gem -a noarch --gem-bin-path /usr/bin --prefix /usr/lib/ruby/gems/1.8 $extra_args $basename
+  RETVAL=$?
+
 	echo "$prefix Build of $basename returned with $RETVAL"
 	if [  $RETVAL -ne 0 ]; then
     echo $basename >> ../failed.txt
