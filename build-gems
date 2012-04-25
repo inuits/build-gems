@@ -3,9 +3,21 @@
 set -x
 export PATH="/usr/lib/ruby/gems/1.8/bin:$PATH"
 
-target=${1-gem-list}
+GEM_PREFIX="${GEM_PREFIX-/usr/lib/ruby/gems/1.8}"
+GEM_BIN_PATH="${GEM_BIN_PATH-/usr/bin}"
 
-count=`cat $target | grep -v '^#' | wc -l`
+if [ "$1"x != "x" ]; then
+  TARGET="$1";
+else
+  TARGET="${TARGET-gem-list}"
+fi
+
+if [ ! -f $TARGET ]; then
+  echo "The specified file with targets does not exist: '$TARGET'";
+  exit 1;
+fi
+
+count=`cat $TARGET| grep -v '^#' | wc -l`
 cl=`echo $count | wc -c`
 i=0;
 [ -f failed.txt ] && rm failed.txt
@@ -29,7 +41,9 @@ do
     extra_args="-v $version $extra_args"
 #		fpm -t  rpm -s gem -v $version -a noarch $extra_args $basename
 	fi
-  eval fpm -t rpm -s gem -a noarch --gem-bin-path /usr/bin --prefix /usr/lib/ruby/gems/1.8 $extra_args $basename
+  extra_args="--gem-bin-path $GEM_BIN_PATH --prefix $GEM_PREFIX $extra_args"
+  extra_args="-d 'ruby(rubygems)' -d 'ruby(abi) = 1.8'  $extra_args"
+  eval fpm -t rpm -s gem -a noarch $extra_args $basename
   RETVAL=$?
 
 	echo "$prefix Build of $basename returned with $RETVAL"
@@ -37,7 +51,7 @@ do
     echo $basename >> ../failed.txt
   fi
 	cd ../
-done < <(cat $target | grep -v '^#')
+done < <(cat $TARGET| grep -v '^#')
 
 if [ -d ARTIFACTS ]
 then
