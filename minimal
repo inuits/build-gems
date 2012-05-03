@@ -8,3 +8,7 @@ rest-client
 mime-types
 mime-types:1.16
 json
+cabin
+arr-pm
+backports
+clamp
