@@ -62,6 +62,7 @@ rack:1.4.1
 rack:1.3.4
 rack-protection:1.1.4
 rack-protection:1.2.0
+rack-test
 rake
 rake:0.8.7
 rdiscount:1.3.1.1
@@ -87,6 +88,8 @@ slop
 sinatra:1.0
 sinatra:1.3.1
 sinatra:1.3.2
+sinatra-contrib
+sinatra-reloader
 state_machine:0.9.4
 stomp:1.1
 SystemTimer:1.2.3
