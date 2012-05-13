@@ -19,6 +19,7 @@ do
 done
 
 # Unstable Gems don't like above you need to fetch them first then build from the local downloaded gem
+# Still need to put it in error handling in here 
 echo "Building unstable gems" 
 for gem in `cat gem-fetch-list`
 do

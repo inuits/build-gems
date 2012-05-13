@@ -1,3 +1,2 @@
 eventmachine
 em-http-request
-http_parser.rb
