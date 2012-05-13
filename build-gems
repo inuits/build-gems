@@ -17,10 +17,24 @@ do
 	[  $RETVAL -ne 0 ] && exit 1
 	cd ../
 done
+
+# Unstable Gems don't like above you need to fetch them first then build from the local downloaded gem
+
+for gem in `cat gem-fetch-list`
+do
+        tversion=`gem fetch --pre $gem`
+        version=`echo $tversion | sed -e "s/Downloaded ${gem}-//g"  `
+        fpm -s gem -t rpm ./${gem}-${version}.gem
+done
+
+
 if [ -d ARTEFACTS ]
 then
     rm -rf ARTEFACTS
 fi
+
+
+
 mkdir ARTEFACTS
 mv BUILD/*.rpm ARTEFACTS
 rm -rf BUILD
