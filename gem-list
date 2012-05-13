@@ -39,6 +39,7 @@ highline
 hodel_3000_compliant_logger:0.1.0
 hoe:2.8.0
 http_parser
+http_parser:0.5.1
 #jls-grok
 json:1.5.3
 json_pure:1.5.0
@@ -55,6 +56,7 @@ ohm
 ohm:0.1.1
 ohm:0.1.3
 ohm-contrib
+ohm-contrib:0.1.1
 #oniguruma
 paperclip:2.2.9.2
 passenger:2.2.7
