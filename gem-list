@@ -22,6 +22,7 @@ echoe:4.3.1
 eventmachine
 em-socksify
 em-http-request
+em-http-request:1.0.0
 exception_notification:1.0.20090728
 factory_girl:1.3.3
 fpm
@@ -86,6 +87,7 @@ ruby-yadis
 ruby-yadis:0.3.4
 shoulda:2.9.2
 slop
+slip:2.1.0
 sinatra:1.0
 sinatra:1.3.1
 sinatra:1.3.2
