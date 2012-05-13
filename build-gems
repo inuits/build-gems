@@ -19,12 +19,14 @@ do
 done
 
 # Unstable Gems don't like above you need to fetch them first then build from the local downloaded gem
-
+echo "Building unstable gems" 
 for gem in `cat gem-fetch-list`
 do
-        tversion=`gem fetch --pre $gem`
-        version=`echo $tversion | sed -e "s/Downloaded ${gem}-//g"  `
-        fpm -s gem -t rpm ./${gem}-${version}.gem
+    cd BUILD
+    tversion=`gem fetch --pre $gem`
+    version=`echo $tversion | sed -e "s/Downloaded ${gem}-//g"  `
+    fpm -s gem -t rpm ./${gem}-${version}.gem
+    cd ../
 done
 
 
