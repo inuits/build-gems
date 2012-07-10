@@ -4,6 +4,7 @@ activesupport:2.3.8
 acts-as-taggable-on:2.0.6
 addressable
 BlueCloth
+backports:2.3.0
 builder:3.0.0
 #cabin
 capillary:0.1.3
