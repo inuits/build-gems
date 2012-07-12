@@ -31,12 +31,9 @@ do
 	cd BUILD
 	if [ x$version == 'x' ]; then
 		echo "$prefix Building latest $basename"
-#		eval fpm -t rpm -s gem -a noarch $extra_args $basename
-		RETVAL=$?
 	else
 		echo "$prefix Building $basename version $version"
     extra_args="-v $version $extra_args"
-#		fpm -t  rpm -s gem -v $version -a noarch $extra_args $basename
 	fi
   extra_args="--gem-bin-path $GEM_BIN_PATH --prefix $GEM_PREFIX $extra_args"
   extra_args="-d 'ruby(rubygems)' -d 'ruby(abi) = 1.8'  $extra_args"
