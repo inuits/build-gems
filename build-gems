@@ -51,7 +51,7 @@ do
 
 	echo "$prefix Build of $basename returned with $RETVAL"
 	if [  $RETVAL -ne 0 ]; then
-    echo $basename >> ../failed.txt
+    echo $gem >> ../failed.txt
   fi
 	cd ../
 done < <(cat $TARGET| grep -v '^#')
