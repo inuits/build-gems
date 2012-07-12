@@ -1,7 +1,6 @@
 #!/bin/bash
 
 set -x
-export PATH="/usr/lib/ruby/gems/1.8/bin:$PATH"
 
 GEM_PREFIX="${GEM_PREFIX-/usr/lib/ruby/gems/1.8}"
 GEM_BIN_PATH="${GEM_BIN_PATH-/usr/bin}"
