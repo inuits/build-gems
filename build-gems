@@ -1,45 +1,72 @@
-mkdir -p BUILD
-for gem in `cat  gem-list | grep -v "#" `
+#!/bin/bash
+
+GEM_PREFIX="${GEM_PREFIX-/usr/lib/ruby/gems/1.8}"
+GEM_BIN_PATH="${GEM_BIN_PATH-/usr/bin}"
+
+if [ "$1"x != "x" ]; then
+  TARGET="$1";
+else
+  TARGET="${TARGET-gem-list}"
+fi
+
+if [ ! -f $TARGET ]; then
+  echo "The specified file with targets does not exist: '$TARGET'";
+  exit 1;
+fi
+
+count=`cat $TARGET| grep -v '^#' | wc -l`
+cl=`echo $count | wc -c`
+i=0;
+[ -f failed.txt ] && rm failed.txt
+[ -d BUILD ] || mkdir -p BUILD
+
+while read gem
 do
-	version=`echo $gem | awk -F':' '{print $2}'`
-	basename=`echo $gem | awk -F':' '{print $1}'`
+  let 'i++';
+  echo $gem | grep -q ':' || gem="${gem}:"
+  prefix="`printf "[%${cl}d/%d]" $i $count`";
+  echo "$prefix Parsing line '${gem}'";
+	basename=`echo $gem   | cut -d':' -f 1 `
+	version=`echo $gem    | cut -d':' -f 2 `
+  extra_args=`echo $gem | cut -d':' -f 3- `
 	cd BUILD
-	if [ x$version == 'x' ]; then 	
-		echo "Building latest $basename "
-		fpm -t rpm -s gem -a noarch $gem
-		RETVAL=$?
+	if [ x$version == 'x' ]; then
+		echo "$prefix Building latest $basename"
+  elif [ $version == 'pre' ]; then
+    echo "$prefix Getting latest prerelease $basename"
+    gemfile="`gem fetch --pre $basename | grep Downloaded`";
+    RETVAL=$?
+    version=`echo $gemfile | sed -e "s/Downloaded ${basename}-//"`;
+    basename="./${basename}-${version}.gem"
 	else
-		echo "Building  $basename version $version "
-		fpm -t rpm -s gem -v $version -a noarch $basename
-		RETVAL=$?
+		echo "$prefix Building $basename version $version"
+    extra_args="-v $version $extra_args"
 	fi
-	echo "Build of $basename returned with $RETVAL"
-	[  $RETVAL -ne 0 ] && exit 1
+  extra_args="--gem-bin-path $GEM_BIN_PATH --prefix $GEM_PREFIX $extra_args"
+  extra_args="-d 'ruby(rubygems)' -d 'ruby(abi) = 1.8'  $extra_args"
+  if [[ x$RETVAL == 'x' || $RETVAL == 0 ]]; then
+    eval fpm -t rpm -s gem -a noarch $extra_args $basename
+    RETVAL=$?
+  fi;
+
+	echo "$prefix Build of $basename returned with $RETVAL"
+	if [  $RETVAL -ne 0 ]; then
+    echo $gem >> ../failed.txt
+  fi
 	cd ../
-done
-
-# Unstable Gems don't like above you need to fetch them first then build from the local downloaded gem
-# Still need to put it in error handling in here 
-echo "Building unstable gems" 
-for gem in `cat gem-fetch-list`
-do
-    cd BUILD
-    tversion=`gem fetch --pre $gem`
-    version=`echo $tversion | sed -e "s/Downloaded ${gem}-//g"  `
-    fpm -s gem -t rpm ./${gem}-${version}.gem
-    cd ../
-done
-
+done < <(cat $TARGET| grep -v '^#')
 
 if [ -d ARTEFACTS ]
 then
     rm -rf ARTEFACTS
 fi
-
-
-
 mkdir ARTEFACTS
 mv BUILD/*.rpm ARTEFACTS
 rm -rf BUILD
 
-
+if [ -f failed.txt ]; then
+  errcount=`cat failed.txt | wc -l`
+  if [ $errcount -gt 0 ]; then
+    exit 1;
+  fi;
+fi;
