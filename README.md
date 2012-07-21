@@ -58,4 +58,5 @@ Lines starting with `#` are ignored.
     sqlite3::--provides "rubygem(sqlite3-ruby)" --depends "sqlite >= 3.6.16"
     backports
     backports:2.3.0
+    puppet-lint:pre
 
