@@ -17,3 +17,4 @@ clamp
 
 ## For sonar
 jruby-openssl
+bouncy-castle-java
