@@ -56,12 +56,12 @@ do
 	cd ../
 done < <(cat $TARGET| grep -v '^#' | grep -v '^$' )
 
-if [ -d ARTIFACTS ]
+if [ -d ARTEFACTS ]
 then
-    rm -rf ARTIFACTS
+    rm -rf ARTEFACTS
 fi
-mkdir ARTIFACTS
-mv BUILD/*.rpm ARTIFACTS
+mkdir ARTEFACTS
+mv BUILD/*.rpm ARTEFACTS
 rm -rf BUILD
 
 if [ -f failed.txt ]; then
