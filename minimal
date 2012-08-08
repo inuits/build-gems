@@ -14,3 +14,7 @@ arr-pm
 backports
 backports:2.3.0
 clamp
+
+## For sonar
+jruby-openssl
+bouncy-castle-java

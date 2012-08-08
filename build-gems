@@ -54,7 +54,7 @@ do
     echo $gem >> ../failed.txt
   fi
 	cd ../
-done < <(cat $TARGET| grep -v '^#')
+done < <(cat $TARGET| grep -v '^#' | grep -v '^$' )
 
 if [ -d ARTEFACTS ]
 then
