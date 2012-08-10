@@ -1,6 +1,6 @@
 # Intro
 
-I`m frequently packaging all gems in the gem-list on our jenkins instance.
+We are frequently packaging all gems in the gem-list on our jenkins instance.
 Results end up on  http://pulp.inuits.eu/pulp/repos/rubygems/
 
 
