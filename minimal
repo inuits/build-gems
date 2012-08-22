@@ -5,10 +5,12 @@ sqlite3-ruby
 hiera
 hiera-puppet
 puppet-lint
+puppet-lint:pre
 rest-client
 mime-types
 mime-types:1.16
 json
+json:1.6.6
 cabin
 arr-pm
 backports
