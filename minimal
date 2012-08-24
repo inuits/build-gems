@@ -5,7 +5,6 @@ sqlite3-ruby
 hiera
 hiera-puppet
 puppet-lint
-puppet-lint:pre
 rest-client
 mime-types
 mime-types:1.16
