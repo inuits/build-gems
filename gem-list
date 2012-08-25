@@ -36,6 +36,7 @@ gemcutter:0.6.1
 geoip
 geoip:0.8.9
 guid
+graphite_graph
 haml
 haml:3.0.25
 hiera
