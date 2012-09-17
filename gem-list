@@ -1,124 +1,124 @@
-activemessaging:0.7.1
-activerecord:2.3.8
-activesupport:2.3.8
-acts-as-taggable-on:2.0.6
-addressable
-arr-pm
-BlueCloth
-backports:2.3.0
-backports:2.6.2
-builder:3.0.0
-cabin
-cabin:0.1.7
-capillary:0.1.3
-carrot-top
-clamp
-clamp:0.3.1
-chronic
-chronic:0.3.0
-cookiejar
-cs-em-hiredis
-daemons
-daemons:1.1.0
-daemons:1.1.8
-diff-lcs
-diff-lcs:1.1.2
-echoe:3.2
-echoe:4.3.1
-eventmachine
-em-socksify
-em-http-request
-em-http-request:1.0.0
-exception_notification:1.0.20090728
-factory_girl:1.3.3
-fpm
-gemcutter:0.6.1
-geoip
-geoip:0.8.9
-guid
-graphite_graph
-haml
-haml:3.0.25
-hiera
-hiera-puppet
-hiredis
-highline
-hodel_3000_compliant_logger:0.1.0
-hoe:2.8.0
-http_parser
-jls-grok
+activemessaging:0.7.1:-a noarch
+activerecord:2.3.8:-a noarch
+activesupport:2.3.8:-a noarch
+acts-as-taggable-on:2.0.6:-a noarch
+addressable::-a noarch
+arr-pm::-a noarch
+BlueCloth::-a noarch
+backports:2.3.0:-a noarch
+backports:2.6.2:-a noarch
+builder:3.0.0:-a noarch
+cabin::-a noarch
+cabin:0.1.7:-a noarch
+capillary:0.1.3:-a noarch
+carrot-top::-a noarch
+clamp::-a noarch
+clamp:0.3.1::-a noarch
+chronic::-a noarch
+chronic:0.3.0:-a noarch
+cookiejar::-a noarch
+cs-em-hiredis::-a noarch
+daemons::-a noarch
+daemons:1.1.0:-a noarch
+daemons:1.1.8:-a noarch
+diff-lcs::-a noarch
+diff-lcs:1.1.2:-a noarch
+echoe:3.2:-a noarch
+echoe:4.3.1:-a noarch
+eventmachine::-a noarch
+em-socksify::-a noarch
+em-http-request::-a noarch
+em-http-request:1.0.0:-a noarch
+exception_notification:1.0.20090728:-a noarch
+factory_girl:1.3.3:-a noarch
+fpm::-a noarch
+gemcutter:0.6.1:-a noarch
+geoip::-a noarch
+geoip:0.8.9:-a noarch
+guid::-a noarch
+graphite_graph::-a noarch
+haml::-a noarch
+haml:3.0.25:-a noarch
+hiera::-a noarch
+hiera-puppet::-a noarch
+hiredis::-a noarch
+highline::-a noarch
+hodel_3000_compliant_logger:0.1.0:-a noarch
+hoe:2.8.0:-a noarch
+http_parser::-a noarch
+jls-grok::-a noarch
 json
 json:1.5.3
 json:1.6.6
-json_pure:1.5.0
-mime-types
-mime-types:1.16
-mocha:0.9.10
-mysql:2.8.1
-nest
-nest:1.1.0
-noah
-oauth
-oauth:0.4.4
-ohm
-ohm:0.1.1
-ohm:0.1.3
-ohm-contrib
-ohm-contrib:0.1.1
-#oniguruma
-paperclip:2.2.9.2
-passenger:2.2.7
-proxymachine:1.2.4
-puppet-lint
-puppet-module
-rack
-rack:1.0.1
-rack:1.4.1:--provides "rubygem(rack)"
-rack:1.3.4
-rack-protection:1.1.4
-rack-protection:1.2.0
-rack-test
-rake
-rake:0.8.7
-rdiscount:1.3.1.1
-RedCloth
-redis:2.2.0
-redis:2.2.0
-redis-namespace:0.7.0
-resque:1.9.8
-revo-ssl_requirement:1.1.0
-riddle:1.2.2
-#rmagick
-rspec
-rspec-rails
-rubyforge:2.0.4
-ruby-hmac
-ruby-hmac:0.4.0
-ruby-openid
-ruby-openid:2.1.8
-ruby-yadis
-ruby-yadis:0.3.4
-shoulda:2.9.2
-slop
-slop:2.1.0
-sinatra:1.0
-sinatra:1.3.1
-sinatra:1.3.2
-sinatra-contrib
-sinatra-reloader
-state_machine:0.9.4
-stomp:1.1
-SystemTimer:1.2.3
-textpow
-thin
-tilt:1.3.3
-tuxml:0.0.1
-ultrasphinx
-validates_url_format_of:0.1.1
-veewee
-vegas:0.1.8
-will_paginate:2.3.15
-yajl-ruby
-librarian-puppet
-eventmachine:pre
-em-http-request:pre
+json_pure:1.5.0:-a noarch
+mime-types::-a noarch
+mime-types:1.16:-a noarch
+mocha:0.9.10:-a noarch
+mysql:2.8.1:-a noarch
+nest::-a noarch
+nest:1.1.0:-a noarch
+noah::-a noarch
+oauth::-a noarch
+oauth:0.4.4:-a noarch
+ohm::-a noarch
+ohm:0.1.1:-a noarch
+ohm:0.1.3:-a noarch
+ohm-contrib::-a noarch
+ohm-contrib:0.1.1:-a noarch
+#oniguruma::-a noarch
+paperclip:2.2.9.2:-a noarch
+passenger:2.2.7:-a noarch
+proxymachine:1.2.4:-a noarch
+puppet-lint::-a noarch
+puppet-module::-a noarch
+rack::-a noarch
+rack:1.0.1:-a noarch
+rack:1.4.1:--provides "rubygem(rack)" -a noarch
+rack:1.3.4:-a noarch
+rack-protection:1.1.4:-a noarch
+rack-protection:1.2.0:-a noarch
+rack-test::-a noarch
+rake::-a noarch
+rake:0.8.7:-a noarch
+rdiscount:1.3.1.1:-a noarch
+RedCloth::-a noarch
+redis:2.2.0:-a noarch
+redis:2.2.0:-a noarch
+redis-namespace:0.7.0:-a noarch
+resque:1.9.8:-a noarch
+revo-ssl_requirement:1.1.0:-a noarch
+riddle:1.2.2:-a noarch
+#rmagick::-a noarch
+rspec::-a noarch
+rspec-rails::-a noarch
+rubyforge:2.0.4:-a noarch
+ruby-hmac::-a noarch
+ruby-hmac:0.4.0:-a noarch
+ruby-openid::-a noarch
+ruby-openid:2.1.8:-a noarch
+ruby-yadis::-a noarch
+ruby-yadis:0.3.4:-a noarch
+shoulda:2.9.2:-a noarch
+slop::-a noarch
+slop:2.1.0:-a noarch
+sinatra:1.0:-a noarch
+sinatra:1.3.1:-a noarch
+sinatra:1.3.2:-a noarch
+sinatra-contrib::-a noarch
+sinatra-reloader::-a noarch
+state_machine:0.9.4:-a noarch
+stomp:1.1:-a noarch
+SystemTimer:1.2.3:-a noarch
+textpow::-a noarch
+thin::-a noarch
+tilt:1.3.3:-a noarch
+tuxml:0.0.1:-a noarch
+ultrasphinx::-a noarch
+validates_url_format_of:0.1.1:-a noarch
+veewee::-a noarch
+vegas:0.1.8:-a noarch
+will_paginate:2.3.15:-a noarch
+yajl-ruby::-a noarch
+librarian-puppet::-a noarch
+eventmachine:pre::-a noarch
+em-http-request:pre::-a noarch
