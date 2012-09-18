@@ -28,7 +28,8 @@ do
   echo "$prefix Parsing line '${gem}'";
   basename=`echo $gem   | cut -d':' -f 1 `
   version=`echo $gem    | cut -d':' -f 2 `
-  extra_args=`echo $gem | cut -d':' -f 3- `
+  arch=`echo $gem       | cut -d':' -f 3 `
+  extra_args=`echo $gem | cut -d':' -f 4- `
   cd BUILD
   if [ x$version == 'x' ]; then
     echo "$prefix Building latest $basename"
@@ -44,8 +45,15 @@ do
   fi
   extra_args="--gem-bin-path $GEM_BIN_PATH --prefix $GEM_PREFIX $extra_args"
   extra_args="-d 'ruby(rubygems)' -d 'ruby(abi) = 1.8'  $extra_args"
+
+  if [ "$arch" == 'arch' ]; then
+    echo "$prefix not specifying noarch to build!"
+  else
+    extra_args="-a noarch $extra_args";
+  fi;
+
   if [[ x$RETVAL == 'x' || $RETVAL == 0 ]]; then
-    eval fpm -t rpm -s gem -a noarch $extra_args $basename
+    eval fpm -t rpm -s gem $extra_args $basename
     RETVAL=$?
   fi;
 
