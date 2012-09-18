@@ -1,15 +1,14 @@
 fpm
-mysql
-sqlite3::--provides "rubygem(sqlite3-ruby)" --depends "sqlite >= 3.6.16"
-sqlite3-ruby
+mysql::arch
+sqlite3::arch:--provides "rubygem(sqlite3-ruby)" --depends "sqlite >= 3.6.16"
 hiera
 hiera-puppet
 puppet-lint
 rest-client
 mime-types
 mime-types:1.16
-json
-json:1.6.6
+json::arch
+json:1.6.6:arch
 cabin
 arr-pm
 backports
