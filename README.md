@@ -48,18 +48,19 @@ You can modify certain parameters by exporting these environment variables befor
 
 Each line is formatted in the following way:
 
-`<gem name>:[version]:[extra fpm options]`
+`<gem name>:[version]:[''|arch]:[extra fpm options]`
 
 * `<gem name>`: is a required option (&lt;/captain obvious&gt;).
-* `[version]`: optional specific version to build. Defaults to the latest 'stable' release if not specified.
+* `[version]`:  optional specific version to build. Defaults to the latest 'stable' release if not specified.
+* `[arch]`:     optional 'arch'. Leave this empty or put 'arch' to indicate this builds is architecture specific.
 * `[extra fpm options]`: Can be used to specify dependencies manually.
 
 Lines starting with `#` are ignored.
 
 ## Example file:
 
-    sqlite3::--provides "rubygem(sqlite3-ruby)" --depends "sqlite >= 3.6.16"
+    sqlite3::arch:--provides "rubygem(sqlite3-ruby)" --depends "sqlite >= 3.6.16"
     backports
     backports:2.3.0
     puppet-lint:pre
-
+    mysql::arch
