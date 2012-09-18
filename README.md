@@ -11,7 +11,8 @@ Package are build on CentOS Boxen.
 
 # Parameters
 
-You can modify certain parameters by exporting these environment variables before running the script:
+You can modify certain parameters by exporting these environment variables
+before running the script:
 
 * `GEM_PREFIX`
 
@@ -25,7 +26,8 @@ You can modify certain parameters by exporting these environment variables befor
 
 * `TARGET`
 
-    File containing list of gems to build. You can also override this by providing the filename as an argument to the script.<br/>
+    File containing list of gems to build. You can also override this by
+    providing the filename as an argument to the script.<br/>
     Defaults to `gem-list`.
 
 
@@ -50,10 +52,12 @@ Each line is formatted in the following way:
 
 `<gem name>:[version]:[''|arch]:[extra fpm options]`
 
-* `<gem name>`: is a required option (&lt;/captain obvious&gt;).
-* `[version]`:  optional specific version to build. Defaults to the latest 'stable' release if not specified.
-* `[arch]`:     optional 'arch'. Leave this empty or put 'arch' to indicate this builds is architecture specific.
-* `[extra fpm options]`: Can be used to specify dependencies manually.
+* `<gem name>`:           is a required option (&lt;/captain obvious&gt;).
+* `[version]`:            optional specific version to build. Defaults to the
+                          latest 'stable' release if not specified.
+* `[arch]`:               optional 'arch'. Leave this empty or put 'arch' to
+                          indicate this builds is architecture specific.
+* `[extra fpm options]`:  Can be used to specify dependencies manually.
 
 Lines starting with `#` are ignored.
 
