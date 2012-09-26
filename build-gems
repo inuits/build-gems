@@ -26,34 +26,42 @@ do
   echo $gem | grep -q ':' || gem="${gem}:"
   prefix="`printf "[%${cl}d/%d]" $i $count`";
   echo "$prefix Parsing line '${gem}'";
-	basename=`echo $gem   | cut -d':' -f 1 `
-	version=`echo $gem    | cut -d':' -f 2 `
-  extra_args=`echo $gem | cut -d':' -f 3- `
-	cd BUILD
-	if [ x$version == 'x' ]; then
-		echo "$prefix Building latest $basename"
+  basename=`echo $gem   | cut -d':' -f 1 `
+  version=`echo $gem    | cut -d':' -f 2 `
+  arch=`echo $gem       | cut -d':' -f 3 `
+  extra_args=`echo $gem | cut -d':' -f 4- `
+  cd BUILD
+  if [ x$version == 'x' ]; then
+    echo "$prefix Building latest $basename"
   elif [ $version == 'pre' ]; then
     echo "$prefix Getting latest prerelease $basename"
     gemfile="`gem fetch --pre $basename | grep Downloaded`";
     RETVAL=$?
     version=`echo $gemfile | sed -e "s/Downloaded ${basename}-//"`;
     basename="./${basename}-${version}.gem"
-	else
-		echo "$prefix Building $basename version $version"
+  else
+    echo "$prefix Building $basename version $version"
     extra_args="-v $version $extra_args"
-	fi
+  fi
   extra_args="--gem-bin-path $GEM_BIN_PATH --prefix $GEM_PREFIX $extra_args"
   extra_args="-d 'ruby(rubygems)' -d 'ruby(abi) = 1.8'  $extra_args"
+
+  if [ "$arch" == 'arch' ]; then
+    echo "$prefix not specifying noarch to build!"
+  else
+    extra_args="-a noarch $extra_args";
+  fi;
+
   if [[ x$RETVAL == 'x' || $RETVAL == 0 ]]; then
-    eval fpm -t rpm -s gem -a noarch $extra_args $basename
+    eval fpm -t rpm -s gem $extra_args $basename
     RETVAL=$?
   fi;
 
-	echo "$prefix Build of $basename returned with $RETVAL"
-	if [  $RETVAL -ne 0 ]; then
+  echo "$prefix Build of $basename returned with $RETVAL"
+  if [  $RETVAL -ne 0 ]; then
     echo $gem >> ../failed.txt
   fi
-	cd ../
+  cd ../
 done < <(cat $TARGET| grep -v '^#' | grep -v '^$' )
 
 if [ -d ARTEFACTS ]
