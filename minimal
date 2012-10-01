@@ -4,6 +4,7 @@ sqlite3::arch:--provides "rubygem(sqlite3-ruby)" --depends "sqlite >= 3.6.16"
 hiera
 hiera-puppet
 hiera-gpg
+gpgme
 puppet-lint
 rest-client
 mime-types
