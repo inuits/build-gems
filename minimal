@@ -22,4 +22,4 @@ jruby-openssl
 bouncy-castle-java
 
 ## For debugging purposes
-awesome-print
+awesome_print
