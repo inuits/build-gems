@@ -54,7 +54,7 @@ do
   fi;
 
   if [[ x$RETVAL == 'x' || $RETVAL == 0 ]]; then
-    eval fpm -t rpm -s gem $extra_args $basename > currentbuild.txt
+    eval fpm -t rpm -s gem $extra_args $basename | tee currentbuild.txt
     RETVAL=$?
   fi;
 
