@@ -54,13 +54,17 @@ do
   fi;
 
   if [[ x$RETVAL == 'x' || $RETVAL == 0 ]]; then
-    eval fpm -t rpm -s gem $extra_args $basename
+    eval fpm -t rpm -s gem $extra_args $basename > currentbuild.txt
     RETVAL=$?
   fi;
 
   echo "$prefix Build of $basename returned with $RETVAL"
   if [  $RETVAL -ne 0 ]; then
-    echo $gem >> ../failed.txt
+    if cat currentbuild.txt | grep -q 'File already exists, refusing to continue'; then
+      echo "$prefix File already exists: skipping (OVERRIDES ERROR)",
+    else
+      echo $gem >> ../failed.txt
+    fi
   fi
   cd ../
 done < <(cat $TARGET| grep -v '^#' | grep -v '^$' )
