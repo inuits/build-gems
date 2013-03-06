@@ -11,6 +11,7 @@ mime-types
 mime-types:1.16
 json::arch
 json:1.6.6:arch
+json_pure
 cabin
 arr-pm
 backports
