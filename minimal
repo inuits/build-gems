@@ -27,5 +27,8 @@ bouncy-castle-java
 ## For debugging purposes
 awesome_print
 
+## General tools
+svn2git
+
 # FPM Dependencies
 open4
