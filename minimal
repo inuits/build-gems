@@ -20,6 +20,9 @@ backports:2.6.2
 clamp:0.3.1
 awesome_print
 
+# fpm dependency
+ftw
+
 ## For sonar
 jruby-openssl
 bouncy-castle-java
