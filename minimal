@@ -17,13 +17,8 @@ arr-pm
 backports
 backports:2.3.0
 backports:2.6.2
-clamp:0.3.1
+clamp:0.6.0
 awesome_print
-
-# fpm dependency
-ftw
-http_parser.rb
-addressable
 
 ## For sonar
 jruby-openssl
@@ -37,3 +32,7 @@ svn2git
 
 # FPM Dependencies
 open4
+ftw
+http_parser.rb
+addressable
+insist
