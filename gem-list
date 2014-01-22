@@ -51,7 +51,7 @@ highline
 hodel_3000_compliant_logger:0.1.0
 hoe:2.8.0
 http_parser
-http_parser.rb
+http_parser.rb:0.5.3
 insist
 jls-grok
 json::arch
