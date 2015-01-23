@@ -44,7 +44,7 @@ do
     echo "$prefix Building $basename version $version"
     extra_args="-v $version $extra_args"
   fi
-  extra_args="--gem-bin-path $GEM_BIN_PATH --prefix $GEM_PREFIX $extra_args"
+  extra_args="--gem-bin-path $GEM_BIN_PATH -- vendor Inuits --prefix $GEM_PREFIX $extra_args"
   extra_args="-d 'ruby(rubygems)' -d 'ruby(abi) = 1.8'  $extra_args"
 
   if [ "$arch" == 'arch' ]; then
