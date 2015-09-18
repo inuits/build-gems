@@ -1,7 +1,8 @@
 #!/bin/bash
 
-GEM_PREFIX="${GEM_PREFIX-/usr/lib/ruby/gems/1.8}"
+GEM_PREFIX="${GEM_PREFIX-$(ruby -rubygems -e 'puts Gem.dir')}"
 GEM_BIN_PATH="${GEM_BIN_PATH-/usr/bin}"
+RUBY_ABI_DEP="${RUBY_ABI_DEP-ruby(abi) = 1.8}"
 
 if [ "$1"x != "x" ]; then
   TARGET="$1";
@@ -45,7 +46,7 @@ do
     extra_args="-v $version $extra_args"
   fi
   extra_args="--gem-bin-path $GEM_BIN_PATH --vendor Inuits --prefix $GEM_PREFIX $extra_args"
-  extra_args="-d 'ruby(rubygems)' -d 'ruby(abi) = 1.8'  $extra_args"
+  extra_args="-d 'ruby(rubygems)' -d '$RUBY_ABI_DEP'  $extra_args"
 
   if [ "$arch" == 'arch' ]; then
     echo "$prefix not specifying noarch to build!"
