@@ -53,6 +53,7 @@ hoe:2.8.0
 http_parser
 http_parser.rb:0.5.3
 insist
+io-like
 jls-grok
 json::arch
 json:1.5.3:arch
@@ -63,6 +64,7 @@ mime-types
 mime-types:1.16
 mixlib
 mocha:0.9.10
+mustache:0.99.8
 mysql:2.8.1:arch
 nest
 nest:1.1.0
@@ -108,6 +110,7 @@ ruby-openid
 ruby-openid:2.1.8
 ruby-yadis
 ruby-yadis:0.3.4
+ruby-xz
 rufus-scheduler
 rvm
 sass
@@ -123,6 +126,7 @@ sinatra-reloader
 sprockets
 state_machine:0.9.4
 stomp:1.1
+stud
 SystemTimer:1.2.3
 textpow
 thin
@@ -218,6 +222,7 @@ net-http-persistent:2.9.4
 nokogiri:1.6.3.1
 ntlm-http:0.1.1
 optparse-command:0.1.8
+pleaserun
 #polyglot:0.3.3
 #rack:1.4.1
 #rack-cache:1.2
