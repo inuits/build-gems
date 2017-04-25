@@ -66,6 +66,8 @@ json_pure:1.5.0
 kwalify
 mime-types
 mime-types:1.16
+minitar
+minitar-cli
 mixlib
 mocha:0.9.10
 mustache:0.99.8
