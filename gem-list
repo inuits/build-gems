@@ -74,6 +74,7 @@ mustache:0.99.8
 mysql:2.8.1:arch
 nest
 nest:1.1.0
+net-ping
 noah
 oauth
 oauth:0.4.4
