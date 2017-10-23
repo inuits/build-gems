@@ -131,6 +131,7 @@ sinatra:1.3.1
 sinatra:1.3.2
 sinatra-contrib
 sinatra-reloader
+smashing:1.0.0
 sprockets
 state_machine:0.9.4
 stomp:1.1
