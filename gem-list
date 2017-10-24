@@ -20,6 +20,7 @@ clamp:1.0.0
 childprocess
 chronic
 chronic:0.3.0
+concurrent-ruby
 coffee-script
 cookiejar
 cs-em-hiredis
@@ -36,6 +37,7 @@ eventmachine
 em-socksify
 em-http-request
 em-http-request:1.0.0
+et-orbi:1.0.8
 exception_notification:1.0.20090728
 factory_girl:1.3.3
 fpm
@@ -120,8 +122,10 @@ ruby-yadis
 ruby-yadis:0.3.4
 ruby-xz
 rufus-scheduler
+rufus-scheduler:2.0.24
 rvm
 sass
+sass-listen:4.0.0
 sensu-plugin
 shoulda:2.9.2
 slop
@@ -130,6 +134,7 @@ sinatra:1.0
 sinatra:1.3.1
 sinatra:1.3.2
 sinatra-contrib
+sinatra-contrib:1.4.7
 sinatra-reloader
 smashing:1.0.0
 sprockets
@@ -139,6 +144,7 @@ stud
 SystemTimer:1.2.3
 textpow
 thin
+thin:1.6.4
 thor
 tilt:1.3.3
 tuxml:0.0.1
@@ -206,7 +212,7 @@ coffee-script-source:1.3.3
 diff-lcs:1.1.3
 #domain_name:0.5.21
 erubis:2.7.0
-#execjs:1.4.0
+execjs:2.0.0
 #hike:1.2.1
 http-cookie:1.0.2
 i18m:0.6.0
